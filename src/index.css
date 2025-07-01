@@ -1,0 +1,301 @@
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+  background: #222 url('/ubuntu-wallpaper.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+/* Desktop layout */
+.desktop {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Desktop icon styles */
+.desktop-icons {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 5;
+}
+
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  user-select: none;
+}
+
+.desktop-icon:hover {
+  background: #ffffff20;
+}
+
+.desktop-icon:active {
+  background: #ffffff30;
+}
+
+.icon-box {
+  width: 48px;
+  height: 48px;
+  background: #ffffff15;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid #ffffff20;
+}
+
+.icon-label {
+  font-size: 11px;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Window */
+.window {
+  position: absolute;
+  top: 100px;
+  left: 30%;
+  width: 400px;
+  background: white;
+  color: black;
+  border-radius: 6px;
+  box-shadow: 0 0 10px black;
+}
+
+/* Window header */
+.window-header {
+  background: #444;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Window body */
+.window-body {
+  padding: 16px;
+}
+
+/* --- App Windows --- */
+.app-window {
+  position: absolute;
+  top: 80px;
+  left: 50px;
+  min-width: 340px;
+  min-height: 180px;
+  background: #222e;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 16px #000a;
+  z-index: 10;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+.window-header {
+  background: #333b;
+  color: #fff;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  user-select: none;
+}
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.close-btn:hover {
+  background: #c00a;
+}
+.window-body {
+  padding: 18px 20px;
+}
+
+/* --- Terminal --- */
+.terminal-window {
+  position: absolute;
+  top: 120px;
+  left: 120px;
+  width: 420px;
+  min-height: 220px;
+  background: #181c1f;
+  color: #b5e853;
+  border-radius: 8px;
+  box-shadow: 0 0 16px #000a;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.terminal-header {
+  background: #222b;
+  color: #b5e853;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  user-select: none;
+}
+.terminal-body {
+  flex: 1;
+  padding: 12px 16px;
+  overflow-y: auto;
+  font-size: 15px;
+  min-height: 120px;
+}
+.terminal-line {
+  white-space: pre-wrap;
+  margin-bottom: 2px;
+}
+.terminal-input-area {
+  display: flex;
+  align-items: center;
+  background: #222b;
+  padding: 8px 16px;
+}
+.terminal-input {
+  background: #181c1f;
+  color: #b5e853;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  flex: 1;
+  margin-left: 8px;
+}
+
+/* System tray styles */
+.system-tray {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 44px;
+  background: #222c;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 12px;
+  z-index: 100;
+  box-shadow: 0 2px 8px #0008;
+  backdrop-filter: blur(10px);
+}
+
+.system-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.system-icon:hover {
+  color: #4CAF50;
+}
+
+.time-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.2;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.time-date:hover {
+  background: #444a;
+}
+
+.time {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.date {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+/* Remove old icon styles if not needed */
+/* .icon, .icon-box { display: none; } */
+
+/* Ubuntu-style App Tray */
+.app-tray {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  width: 64px;
+  height: calc(100vh - 48px);
+  background: #222c;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+  gap: 18px;
+  z-index: 101;
+  box-shadow: 2px 0 8px #0008;
+  backdrop-filter: blur(8px);
+}
+
+.tray-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fff;
+  background: #ffffff10;
+  border-radius: 12px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.tray-icon:hover {
+  background: #4CAF50;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+/* Hide old desktop icons */
+.desktop-icons { display: none !important; }
