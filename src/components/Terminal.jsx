@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../App.css";
 
-const helpText = `Available commands:\nabout - About Me\ncv - CV\ncertificates - Certificates\nprojects - Projects\nskills - Skills\nclear - Clear terminal\nhelp - Show this help message`;
+const helpText = `Available commands:\nabout - About Me\ncv - CV\ncertificates - Certificates\nclear - Clear terminal`;
 
 export default function Terminal({ onOpenApp, onClose }) {
   const [lines, setLines] = useState(["Welcome to the Portfolio Terminal!", helpText]);
@@ -26,14 +26,6 @@ export default function Terminal({ onOpenApp, onClose }) {
       case "certificates":
         onOpenApp("certificates");
         output = "Opening Certificates...";
-        break;
-      case "projects":
-        onOpenApp("projects");
-        output = "Opening Projects...";
-        break;
-      case "skills":
-        onOpenApp("skills");
-        output = "Opening Skills...";
         break;
       case "clear":
         setLines([]);
