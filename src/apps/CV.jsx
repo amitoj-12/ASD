@@ -5,7 +5,7 @@ export default function CV() {
     <div style={{ textAlign: 'center', marginTop: 40 }}>
       <h2>My CV</h2>
       <a
-        href={import.meta.env.BASE_URL + "CV/CV Amitojsingh Dhillon.pdf"}
+        href={import.meta.env.BASE_URL + "CV/CV%20Amitojsingh%20Dhillon.pdf"}
         target="_blank"
         rel="noopener noreferrer"
         style={{ fontSize: 18, color: '#1976d2', textDecoration: 'underline' }}
