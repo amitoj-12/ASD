@@ -2,14 +2,14 @@ import React, { useState } from "react";
 
 export default function Certificates() {
   const certificates = [
-    "Smart English Basics for proffesional.png",
+    "HACKATHON3.png",
+    "HACKATHON.png",
+    "Spectrum 2023.png",
+    "Introduction to GITHUB.png",
+    "Programable Logic Controller.png",
     "Digital Productivity.png",
-    "Responsive Website.png",
-    "Spectrum 2023.jpeg",
-    "HACKATHON3.jpeg",
-    "Programable Logic Controller.jpeg",
-    "HACKATHON.jpeg",
-    "Introduction to GITHUB.jpeg"
+    "Smart English Basics for proffesional.png",
+    "Responsive Website.png"
   ];
   const [selected, setSelected] = useState(0);
   // Responsive: use window width to apply mobile classes
