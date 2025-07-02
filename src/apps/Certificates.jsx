@@ -1,65 +1,37 @@
 import React, { useState } from "react";
 
-const certificates = [
-  {
-    name: "Smart English Basics for Professionals",
-    file: "/Smart English Basics for proffesional.png"
-  },
-  {
-    name: "Digital Productivity",
-    file: "/Digital Productivity.png"
-  },
-  {
-    name: "Responsive Website Development using Bootstrap Framework",
-    file: "/Responsive Website Development using Bootstrap Framework.png"
-  },
-  {
-    name: "Spectrum 2023",
-    file: "/Spectrum 2023.jpeg"
-  },
-  {
-    name: "HACKATHON 3.0",
-    file: "/HACKATHON 3.0.jpeg"
-  },
-  {
-    name: "Programable Logic Controller",
-    file: "/Programable Logic Controller.jpeg"
-  },
-  {
-    name: "HACKATHON 2.0",
-    file: "/HACKATHON 2.0.jpeg"
-  },
-  {
-    name: "Introduction to GITHUB",
-    file: "/Introduction to GITHUB.jpeg"
-  }
-];
-
 export default function Certificates() {
+  const certificates = [
+    "Smart English Basics for proffesional.png",
+    "Digital Productivity.png",
+    "Responsive Website.png",
+    "Spectrum 2023.jpeg",
+    "HACKATHON3.jpeg",
+    "Programable Logic Controller.jpeg",
+    "HACKATHON.jpeg",
+    "Introduction to GITHUB.jpeg"
+  ];
   const [selected, setSelected] = useState(0);
-
+  // Responsive: use window width to apply mobile classes
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 700;
   return (
-    <div style={{ display: 'flex', minHeight: 320, maxHeight: 480 }}>
-      {/* Navigation Panel */}
-      <nav style={{
-        minWidth: 220,
-        borderRight: '1px solid #444',
-        padding: '20px 0',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 10,
-        background: '#222b',
-        borderRadius: '10px 0 0 10px',
-        height: '100%',
-      }}>
-        <h3 style={{ color: '#fff', margin: '0 0 12px 24px', fontSize: 18 }}>Certificates</h3>
-        {certificates.map((cert, idx) => (
+    <div
+      className={isMobile ? "certificates-mobile-stack" : undefined}
+      style={isMobile ? undefined : { display: 'flex', height: 400, maxWidth: 700, margin: '0 auto', background: '#23272e', borderRadius: 12, boxShadow: '0 2px 12px #0005', overflow: 'hidden' }}
+    >
+      {/* Left Panel */}
+      <div
+        className={isMobile ? "certificates-mobile-panel" : undefined}
+        style={isMobile ? undefined : { width: 220, background: '#181c1f', padding: '18px 0', display: 'flex', flexDirection: 'column', gap: 6, borderRight: '1px solid #333' }}
+      >
+        {certificates.map((file, idx) => (
           <button
-            key={cert.name}
+            key={file}
             onClick={() => setSelected(idx)}
-            style={{
-              background: selected === idx ? '#444' : 'none',
-              color: 'white',
+            className={isMobile && selected === idx ? "selected" : undefined}
+            style={isMobile ? undefined : {
+              background: selected === idx ? '#333b' : 'none',
+              color: selected === idx ? '#4CAF50' : '#fff',
               border: 'none',
               padding: '10px 18px',
               textAlign: 'left',
@@ -67,21 +39,20 @@ export default function Certificates() {
               borderRadius: 6,
               fontWeight: 500,
               fontSize: 15,
-              marginLeft: 12,
-              marginRight: 12
+              transition: 'background 0.2s, color 0.2s',
             }}
           >
-            {cert.name}
+            {file.replace(/\.[^/.]+$/, "")}
           </button>
         ))}
-      </nav>
-      {/* Certificate Preview */}
-      <div style={{ flex: 1, padding: '24px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', overflow: 'auto' }}>
-        <h4 style={{ color: '#4CAF50', marginBottom: 16, fontSize: 18 }}>{certificates[selected].name}</h4>
+      </div>
+      {/* Right Image Display */}
+      <div style={isMobile ? { width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#23272e' } : { flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#23272e' }}>
         <img
-          src={certificates[selected].file}
-          alt={certificates[selected].name}
-          style={{ maxWidth: '100%', maxHeight: 340, borderRadius: 8, boxShadow: '0 2px 8px #0006', border: '1px solid #333' }}
+          className={isMobile ? "certificates-mobile-image" : undefined}
+          src={import.meta.env.BASE_URL + "Certificate/" + certificates[selected]}
+          alt={certificates[selected].replace(/\.[^/.]+$/, "")}
+          style={isMobile ? undefined : { maxWidth: '90%', maxHeight: 340, borderRadius: 10, boxShadow: '0 2px 12px #0007', background: '#fff' }}
         />
       </div>
     </div>
